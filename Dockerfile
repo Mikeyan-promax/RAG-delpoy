@@ -10,14 +10,17 @@ RUN apt-get update && apt-get install -y \
     g++ \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy requirements first for better caching
+# Copy requirements first for better caching (without lightrag)
 COPY requirements.txt .
 
-# Install Python dependencies
+# Install Python dependencies (excluding lightrag)
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the entire application
 COPY . .
+
+# Install local LightRAG package
+RUN cd LightRAG-1.4.6 && pip install -e .
 
 # Create necessary directories
 RUN mkdir -p inputs rag_storage logs

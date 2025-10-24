@@ -1,5 +1,5 @@
-# LightRAG核心依赖
-lightrag>=0.0.1
+# LightRAG核心依赖 - 使用本地安装，不从PyPI安装
+# lightrag>=0.0.1  # 注释掉，使用本地代码安装
 fastapi>=0.104.1
 uvicorn[standard]>=0.24.0
 python-multipart>=0.0.6
