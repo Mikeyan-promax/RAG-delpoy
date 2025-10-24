@@ -1,0 +1,123 @@
+lightrag-supabase-deploy
+/
+b8341b1d
+Active
+
+Oct 24, 2025, 12:39 PM
+lightrag-supabase-deploy-production.up.railway.app
+Details
+Build Logs
+Deploy Logs
+HTTP Logs
+Filter and search logs
+
+You reached the start of the range
+Oct 24, 2025, 12:39 PM
+Starting Container
+    ├─ Workers: 1
+LightRAG log file: /app/lightrag.log
+    ├─ CORS Origins: *
+    ├─ SSL Enabled: False
+    ├─ Ollama Emulating Model: lightrag:latest
+    ╔══════════════════════════════════════════════════════════════╗
+    ├─ Log Level: INFO
+    ├─ Verbose Debug: False
+    ║                 LightRAG Server v1.4.6/0198                  ║
+    ║         Fast, Lightweight RAG Server Implementation          ║
+    ╚══════════════════════════════════════════════════════════════╝
+    
+WARNING:root:In uvicorn mode, workers parameter was set to 2. Forcing workers=1
+Warning: Startup directory must contain .env file for multi-instance support.
+📡 Server Configuration:
+    ├─ Host: 0.0.0.0
+    ├─ Port: 9621
+    ├─ History Turns: 0
+    ├─ API Key: Not Set
+    └─ Input Directory: /app/data/inputs
+    ├─ Host: https://api.openai.com/v1
+🤖 LLM Configuration:
+    ├─ Model: deepseek-chat
+    ├─ Binding: openai
+    ├─ Temperature: 1.0
+    ├─ Max Async for LLM: 4
+    ├─ Max Tokens: 10000
+    └─ JWT Auth: Disabled
+    ├─ Timeout: 150
+📂 Directory Configuration:
+    ├─ LLM Cache Enabled: True
+    ├─ Working Directory: /app/data/rag_storage
+    └─ LLM Cache for Extraction Enabled: True
+    ├─ Binding: openai
+    ├─ Host: https://api.openai.com/v1
+📊 Embedding Configuration:
+    ├─ Model: doubao-embedding-text-240715
+    └─ Dimensions: 2560
+    ├─ Chunk Size: 1200
+    ├─ KV Storage: PGKVStorage
+    └─ Alternative Documentation (local): http://localhost:9621/redoc
+    ├─ Chunk Overlap Size: 100
+🌐 Server Access Information:
+    ├─ Document Status Storage: PGDocStatusStorage
+    ├─ WebUI (local): http://localhost:9621
+    ├─ Cosine Threshold: 0.2
+    └─ Workspace: -
+    ├─ Remote Access: http://<your-ip-address>:9621
+    ├─ Top-K: 40
+⚙️ RAG Configuration:
+    ├─ API Documentation (local): http://localhost:9621/docs
+    └─ Force LLM Summary on Merge: 4
+✨ Server starting up...
+    ├─ Summary Language: English
+    ├─ Max Parallel Insert: 2
+💾 Storage Configuration:
+    ├─ Vector Storage: PGVectorStorage
+📝 Note:
+    
+    - To find your IP address:
+      • Windows: Run 'ipconfig' in terminal
+INFO: Rerank model not configured. Set RERANK_BINDING_API_KEY and RERANK_BINDING_HOST to enable reranking.
+      • Linux/Mac: Run 'ifconfig' or 'ip addr' in terminal
+    Since the server is running on 0.0.0.0:
+    - Use 'localhost' or '127.0.0.1' for local access
+    - Use your machine's IP address for remote access
+WARNING: Rerank is enabled but no rerank_model_func provided. Reranking will be skipped.
+ERROR: 请安装volcengine-python-sdk: pip install volcengine-python-sdk
+ERROR: 初始化图像处理器失败: volcengine-python-sdk is required for Doubao vision model
+INFO: Started server process [1]
+INFO: Waiting for application startup.
+INFO: VECTOR extension ensured for PostgreSQL
+INFO: PostgreSQL, Connected to database at pgm-2ze58b40mdfqec4zwo.pg.rds.aliyuncs.com:5432/lightrag_production without SSL
+INFO: chunk_id column already exists in LIGHTRAG_LLM_CACHE table
+INFO: cache_type column already exists in LIGHTRAG_LLM_CACHE table
+INFO: Skipping migration: LIGHTRAG_VDB_CHUNKS already contains data.
+INFO: chunks_list column already exists in LIGHTRAG_DOC_STATUS table
+INFO: llm_cache_list column already exists in LIGHTRAG_DOC_CHUNKS table
+INFO: track_id column already exists in LIGHTRAG_DOC_STATUS table
+INFO: Index on track_id column already exists for LIGHTRAG_DOC_STATUS table
+INFO: metadata column already exists in LIGHTRAG_DOC_STATUS table
+INFO: error_msg column already exists in LIGHTRAG_DOC_STATUS table
+INFO: Application startup complete.
+INFO: Uvicorn running on http://0.0.0.0:9621 (Press CTRL+C to quit)
+INFO: limit_async: 8 new workers initialized
+ERROR: limit_async: Error in decorated function: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-91891***********************99eb. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+ERROR: Error in _get_vector_context: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-91891***********************99eb. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+INFO: 100.64.0.3:21762 - "POST /query/stream HTTP/1.1" 200
+INFO: 100.64.0.3:23460 - "POST /documents/upload HTTP/1.1" 200
+INFO: No new unique documents were found.
+INFO: Successfully fetched and enqueued file: simple_test.txt
+INFO: Processing 1 document(s)
+INFO: Extracting stage 1/1: simple_test.txt
+INFO: Processing d-id: doc-be3c678bba632919f1fa2c943506c009
+ERROR: limit_async: Error in decorated function: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-91891***********************99eb. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+ERROR: Traceback (most recent call last):
+  File "/app/lightrag/lightrag.py", line 1351, in process_document
+    await asyncio.gather(*first_stage_tasks)
+  File "/app/lightrag/kg/postgres_impl.py", line 1817, in upsert
+    embeddings_list = await asyncio.gather(*embedding_tasks)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/lightrag/utils.py", line 581, in wait_func
+    return await future
+           ^^^^^^^^^^^^
+  File "/app/lightrag/utils.py", line 365, in worker
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -1,0 +1,83 @@
+# Python虚拟环境 - 最大的占用空间
+.venv/
+env/
+venv/
+lightrag_env/
+
+# Python缓存文件
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+
+# 环境配置文件（包含敏感信息）
+.env
+.env.*
+*.env
+.env_*
+config.ini
+
+# 日志文件
+*.log
+*.log.*
+lightrag.log
+
+# 存储目录（运行时生成）
+rag_storage/
+inputs/
+input/
+
+# 构建和分发文件
+dist/
+build/
+site/
+
+# IDE配置文件
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 缓存目录
+.cache/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.gradio/
+.history/
+temp/
+
+# 数据库文件
+*.db
+*.sqlite
+*.sqlite3
+
+# 备份文件
+*.bak
+*.backup
+*.old
+
+# 压缩文件
+*.zip
+*.tar.gz
+*.tgz
+*.rar
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Docker相关
+.dockerignore
+
+# 监控和Redis配置（运行时生成）
+monitoring/
+redis/
+
+# 图片和媒体文件（如果不是必需的）
+# image/
+# *.png
+# *.jpg
+# *.jpeg
+# *.gif
