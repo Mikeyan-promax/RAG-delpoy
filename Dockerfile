@@ -19,8 +19,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the entire application
 COPY . .
 
-# Install local LightRAG package
-RUN cd LightRAG-1.4.6 && pip install -e .
+# Install local LightRAG package with explicit path and build tools
+RUN cd /app/LightRAG-1.4.6 && \
+    pip install --upgrade pip setuptools wheel && \
+    pip install -e . --verbose
 
 # Create necessary directories
 RUN mkdir -p inputs rag_storage logs
