@@ -1,0 +1,65 @@
+# Railway部署忽略文件
+# 排除不必要的文件和文件夹以减小部署包大小
+
+# 日志文件
+logs/
+*.log
+
+# 缓存文件
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# 开发环境文件
+.env
+.env.local
+.vscode/
+.idea/
+
+# 测试文件
+test_*
+*_test.py
+tests/
+
+# 文档和说明文件（保留README-Railway.md）
+*.md
+!README-Railway.md
+
+# 数据文件
+data/
+*.db
+*.sqlite
+
+# Git相关
+.git/
+.gitignore
+
+# 临时文件
+*.tmp
+*.temp
+temp/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 其他LightRAG版本文件夹
+LightRAG-super-optimized/
+LightRAG-ultra-optimized/
+LightRAG-1.4.6/
+
+# 图片文件（如果不是必需的）
+image/
+*.png
+*.jpg
+*.jpeg
+*.gif
+
+# 反馈和测试文件
+feedback.txt
+system_test_report.md
+test_document.txt
+项目启动指南.md
