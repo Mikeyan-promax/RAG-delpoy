@@ -19,6 +19,14 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the entire application
 COPY . .
 
+# Debug: List contents to verify file structure
+RUN echo "=== Checking /app contents ===" && \
+    ls -la /app/ && \
+    echo "=== Checking LightRAG-1.4.6 directory ===" && \
+    ls -la /app/LightRAG-1.4.6/ && \
+    echo "=== Checking for setup files ===" && \
+    find /app/LightRAG-1.4.6/ -name "setup.py" -o -name "pyproject.toml"
+
 # Install local LightRAG package with explicit path and build tools
 RUN cd /app/LightRAG-1.4.6 && \
     pip install --upgrade pip setuptools wheel && \
